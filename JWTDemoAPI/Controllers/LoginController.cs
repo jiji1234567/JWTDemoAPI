@@ -12,7 +12,7 @@ namespace JWTDemoAPI.Controllers
         public async Task<object> GetJwtStr(string userName, string pwd)
         {
 
-            JwtUserInfo jwtUserInfo = new JwtUserInfo { Uid = 1, Role = "Admin,Leader" };
+            JwtUserInfo jwtUserInfo = new JwtUserInfo { Uid = 1, Role = "Admin,Leader" ,Email= "jizhiyang10@gmail.com"};
             string jwtStr = JwtHelper.IssueJwt(jwtUserInfo);
 
             return Ok(new { success = true, token = jwtStr });

@@ -27,11 +27,12 @@ namespace JwtDemo.Common
                 new Claim(JwtRegisteredClaimNames.Iat, $"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}"),
                 new Claim (JwtRegisteredClaimNames.Exp,$"{new DateTimeOffset(DateTime.Now.AddSeconds(1000)).ToUnixTimeSeconds()}"),
                 new Claim(JwtRegisteredClaimNames.Iss,iss), 
-                new Claim(JwtRegisteredClaimNames.Aud,aud)
+                new Claim(JwtRegisteredClaimNames.Aud,aud),
+                new Claim(JwtRegisteredClaimNames.Email,jwtUserInfo.Email!)
                };
 
             //添加用户的角色信息（非必须，可添加多个）
-            var claimRoleList = jwtUserInfo.Role.Split(',').Select(role => new Claim(ClaimTypes.Role, role)).ToList();
+            var claimRoleList = jwtUserInfo.Role!.Split(',').Select(role => new Claim(ClaimTypes.Role, role)).ToList();
             claimsIdentity.AddRange(claimRoleList);
 
 

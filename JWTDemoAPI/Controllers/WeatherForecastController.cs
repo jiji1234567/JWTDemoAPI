@@ -19,7 +19,7 @@ namespace JWTDemoAPI.Controllers
             _logger = logger;
         }
 
-
+        //test
         [Authorize(Policy = "Admin")]
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
